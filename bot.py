@@ -80,47 +80,46 @@ def analyze_image(image_data):
     bot.send_message(adm, f"Error while analyzing the photo: {error}")
     return None
 
+import time
 
+FALLBACK_MODELS = [
+    "qwen/qwen3-coder:free",
+    "google/gemma-4-26b-a4b-it:free",
+    "deepseek/deepseek-v4-flash:free",
+    "nvidia/nemotron-3-super-120b-a12b:free",
+]
 
-# Sending an AI request
 def get_answer(context, text):
     print("Sending request...")
     prompt = prompt_main + context
-
-    for n in range(MAX_TRY):
+    for model in FALLBACK_MODELS:
+        print(f"Trying model: {model}")
         response = requests.post(
-        url="https://openrouter.ai/api/v1/chat/completions",
-        headers={
-            "Authorization": f"Bearer {API_KEY}"
-        },
-        data=json.dumps({
-            "model": MODEL,
-            "messages": [
-            {   "role": "system",
-                "content": prompt
-            },
-            {
-                "role": "user",
-                "content": text
-            }
-            ]
-        })
+            url="https://openrouter.ai/api/v1/chat/completions",
+            headers={"Authorization": f"Bearer {API_KEY}"},
+            data=json.dumps({
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": prompt},
+                    {"role": "user", "content": text}
+                ]
+            })
         )
-        print("Request sent.")
-
-        print(response.status_code)
+        print(f"Status: {response.status_code}")
         if response.status_code == 200:
             answer = response.json()["choices"][0]["message"]["content"]
-            if answer is None or answer.strip() == "":
-                print("Empty answer, try again...")
-            else:
+            if answer and answer.strip():
                 return answer
+            print("Empty answer, trying next...")
+        elif response.status_code == 429:
+            print(f"{model} rate limited, next...")
+            time.sleep(2)
+            continue
         else:
-            bot.send_message(adm, f"Error sending AI request: {response.status_code}")
-            return False
-    
-    error = response.status_code if response.status_code != 200 else "Empty answer"
-    bot.send_message(adm, f"Error sending AI request: {error}")
+            print(f"{model} error: {response.status_code}")
+            continue
+    bot.send_message(adm, "All models busy. Try again later.")
+    return False
 
 
 # Removes duplicate text (a problem with some AI models)
