@@ -1,5 +1,5 @@
 # API Keys
-API_KEY="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"
+API_KEY="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"
 TOKEN_BOT="8827360432:AAERFAlft3gpx-yk4XSndAw6oxPtvHs9P7s"
 
 # user ID to whom error messages are sent
@@ -12,13 +12,13 @@ SPECIAL_IDS=[]
 MAX_TRY=2
 
 # AI model for text generation
-MODEL="meta-llama/llama-3.2-3b-instruct:free"
+MODEL="google/gemma-4-26b-a4b-it:free"
 
 # AI model for image recognition
-MODEL_IM="nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+MODEL_IM="google/gemma-4-26b-a4b-it:free"
 
 # The second model for image recognition, which will be used for the second and subsequent attempts
-MODEL_IM2="google/gemma-4-31b-it:free"
+MODEL_IM2="google/gemma-4-26b-a4b-it:free"
 
 # Allow the admin (ADMIN_ID) to describe the image themselves if the AI ​​was unable to do so
 ADMIN_DESCRIP_IM=False
