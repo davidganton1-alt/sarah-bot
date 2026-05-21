@@ -1,6 +1,6 @@
 # API Keys
 API_KEY="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"
-TOKEN_BOT="8868858321:AAFLEjdOOpVx2yclRygma3ASpxnV4S7heoM"
+TOKEN_BOT="8827360432:AAERFAlft3gpx-yk4XSndAw6oxPtvHs9P7s"
 
 # user ID to whom error messages are sent
 ADMIN_ID = 123456789
