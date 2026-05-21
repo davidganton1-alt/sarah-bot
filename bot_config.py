@@ -13,7 +13,7 @@ SPECIAL_IDS=[]
 MAX_TRY=2
 
 # AI model for text generation
-MODEL="google/gemma-4-26b-a4b-it:free"
+MODEL="qwen/qwen3-coder:free"
 
 # AI model for image recognition
 MODEL_IM="google/gemma-4-26b-a4b-it:free"
