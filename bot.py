@@ -83,26 +83,21 @@ def analyze_image(image_data):
 import time
 
 FALLBACK_MODELS = [
-    "qwen/qwen3-coder:free",
+    "nvidia/nemotron-3-super-120b-a12b:free",
     "google/gemma-4-26b-a4b-it:free",
     "deepseek/deepseek-v4-flash:free",
-    "nvidia/nemotron-3-super-120b-a12b:free",
+    "qwen/qwen3-coder:free",
 ]
 
 def get_answer(context, text):
     print("Sending request...")
     prompt = prompt_main + context
-    for model in FALLBACK_MODELS:
-        print(f"Trying model: {model}")
-        response = requests.post(
-            url="https://openrouter.ai/api/v1/chat/completions",
-            headers={"Authorization": f"Bearer {API_KEY}"},
-            data=json.dumps({
-                "model": model,
-                "messages": [
-                    {"role": "system", "content": prompt},
-                    {"role": "user", "content": text}
-                ]
+FALLBACK_MODELS = [
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "google/gemma-4-26b-a4b-it:free",
+    "deepseek/deepseek-v4-flash:free",
+    "qwen/qwen3-coder:free",
+]
             })
         )
         print(f"Status: {response.status_code}")
