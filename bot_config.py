@@ -3,7 +3,7 @@ API_KEY="sk-or-v1-b5fa0b3314a1d96c81b6bb4e7b366ffd1a2f046c290077aafa101e0461e799
 TOKEN_BOT="8827360432:AAERFAlft3gpx-yk4XSndAw6oxPtvHs9P7s"
 
 # user ID to whom error messages are sent
-ADMIN_ID = 123456789
+ADMIN_ID = 8528677301
 
 # User IDs to which the bot will react "specially" in chat
 SPECIAL_IDS=[]
@@ -25,7 +25,7 @@ ADMIN_DESCRIP_IM=False
 
 # Whitelist config 
 WHITELIST_PRIVATE=False # Is whitelisting enabled for private messages
-WHITELIST=[ADMIN_ID, 123456789] # User IDs in the whitelist
+WHITELIST=[ADMIN_ID] # User IDs in the whitelist
 NO_WHITELIST_M="Sorry, but you can't use this bot in private messages because you are not on the whitelist." # The message sent to the user if they are not on the whitelist. Leave blank if you do not want this message to be sent.
 WHITELIST_CHAT=True # Is whitelisting enabled for chat
 WHITE_CHATS=[-1234567890123, -3210987654321] # Chat IDs in the whitelist
