@@ -1,6 +1,7 @@
+import os
 # API Keys
-API_KEY="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"
-TOKEN_BOT="8827360432:AAERFAlft3gpx-yk4XSndAw6oxPtvHs9P7s"
+API_KEY=os.environ.get("API_KEY", "")
+TOKEN_BOT=os.environ.get("TOKEN_BOT", "")
 
 # user ID to whom error messages are sent
 ADMIN_ID = 8528677301
