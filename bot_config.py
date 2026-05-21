@@ -12,7 +12,7 @@ SPECIAL_IDS=[]
 MAX_TRY=2
 
 # AI model for text generation
-MODEL="deepseek/deepseek-v4-flash:free"
+MODEL="meta-llama/llama-3.2-3b-instruct:free"
 
 # AI model for image recognition
 MODEL_IM="nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
